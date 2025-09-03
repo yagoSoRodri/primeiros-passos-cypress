@@ -1,13 +1,13 @@
 import userData from '../fixtures/userData.json'
+import LoginPage from '../pages/loginPage.js'
+
+const loginPage = new LoginPage()
 
 describe('Orange HRM Tests', () => {
     const selectorsList = {
-      usernameField: "[name='username']",
-      passwordField: "[name='password']",
-      logintButton: ".oxd-button",
+      
       sectionTitleTopBar: ".oxd-topbar-header-title",
       dashboardGrid: ".oxd-layout-context",
-      worngCredenptionAlert: ".oxd-alert",
       firstNameField: "[name='firstName']",
       lastNameField: ".orangehrm-lastname",
       genericField: ".oxd-input--active",
@@ -23,10 +23,8 @@ describe('Orange HRM Tests', () => {
     }
     
   it.only('User Info Update - Success', () => {
-    cy.visit('auth/login')
-    cy.get(selectorsList.usernameField).type(userData.userSuccess.username)
-    cy.get(selectorsList.passwordField).type(userData.userSuccess.password)
-    cy.get(selectorsList.logintButton).click()
+    loginPage.accessLoginPage()
+    loginPage.loginWithUser(userData.userSuccess.username,userData.userSuccess.password)
     cy.location('pathname').should('equal','/web/index.php/dashboard/index')
     cy.get(selectorsList.dashboardGrid)
     cy.get(':nth-child(6) > .oxd-main-menu-item').click()
