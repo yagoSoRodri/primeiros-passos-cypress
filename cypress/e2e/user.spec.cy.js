@@ -51,7 +51,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorsList.subimitButton).eq(0).click()
     cy.get('.oxd-toast-close')
     cy.get(':nth-child(6) > .oxd-main-menu-item').click()
-    cy.wait(200)
+    cy.wait(2000)
   })
     
   it('Login - Fail', () => {
