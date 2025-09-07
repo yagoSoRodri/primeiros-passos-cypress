@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Env/segredos
+.env
+.env.*
+
+# Cypress evidências
+cypress/screenshots/
+cypress/videos/
+
+# Allure
+allure-results/
+allure-report/
+
+# SOs
+.DS_Store
+Thumbs.db
